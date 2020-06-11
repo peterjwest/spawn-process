@@ -1,0 +1,57 @@
+{
+  "name": "spawn-process",
+  "version": "1.0.1",
+  "description": "Promise wrapper for `child_process.spawn`",
+  "main": "./build/es6/index.mjs",
+  "exports": {
+    "import": "./build/es6/index.mjs",
+    "require": "./build/es5/index.cjs"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:peterjwest/spawn-process.git"
+  },
+  "files": [
+    "/build"
+  ],
+  "author": "Peter West",
+  "bugs": {
+    "url": "https://github.com/peterjwest/spawn-process/issues"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://github.com/peterjwest/spawn-process#readme",
+  "scripts": {
+    "audit-dependencies": "yarn audit; [[ $? -ge 4 ]] && exit 1 || exit 0",
+    "build": "yarn build:es6 && yarn build:es5",
+    "build:es6": "rm -rf build/es6 && tsc --project tsconfig-build-es6.json && renamer --find .js --replace .mjs build/es6/**",
+    "build:es5": "rm -rf build/es5 && tsc --project tsconfig-build-es5.json && renamer --find .js --replace .cjs build/es5/**",
+    "lint:ts": "tslint --format verbose --project tsconfig.json",
+    "test:coverage": "rm -rf coverage && NODE_DEBUG=nyc nyc mocha 'tests/**/*.ts'",
+    "test:unit": "mocha --require ts-node/register 'tests/*.ts'",
+    "test:unit:es5": "mocha 'tests/*.cjs'",
+    "test:unit:es6": "mocha 'tests/*.mjs'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.13",
+    "@types/sinon": "^9.0.4",
+    "mocha": "^8.0.1",
+    "mocha-circleci-reporter": "^0.0.3",
+    "nyc": "^15.1.0",
+    "renamer": "^1.1.4",
+    "sinon": "^9.0.2",
+    "sinon-assert-stub": "^1.0.1",
+    "sinon-mocha-test": "^1.0.8",
+    "sinon-test": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "tslint": "^6.1.2",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.5.2",
+    "typescript-tslint-plugin": "^0.5.4"
+  }
+}
