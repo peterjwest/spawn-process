@@ -3,7 +3,8 @@ const assertStub = require('sinon-assert-stub');
 const { Readable } = require('stream');
 const sinonTest = require('sinon-mocha-test');
 
-const { default: spawnProcess, dependencies } = require('../build/es5/index.cjs');
+const spawnProcess = require('../build/wrapper.js');
+const dependencies = spawnProcess.dependencies;
 
 /** Creates a readable stream with specified data */
 function createReadable(data) {

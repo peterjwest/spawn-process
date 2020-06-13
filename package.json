@@ -2,10 +2,10 @@
   "name": "spawn-process",
   "version": "1.0.1",
   "description": "Promise wrapper for `child_process.spawn`",
-  "main": "./build/es6/index.mjs",
+  "main": "./build/wrapper.js",
   "exports": {
     "import": "./build/es6/index.mjs",
-    "require": "./build/es5/index.cjs"
+    "require": "./build/wrapper.js"
   },
   "engines": {
     "node": ">=8"
