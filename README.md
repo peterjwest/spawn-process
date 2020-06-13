@@ -14,7 +14,39 @@ yarn add spawn-process
 
 ## Usage
 
-TODO
+`spawnProcess` will resolve with the stdout output or reject with the stderr.
+
+```js
+import spawnProcess from 'spawn-process';
+
+(async () => {
+    const stdout = await spawnProcess('echo', ['Hello world']);
+    console.log(stdout);
+})();
+```
+
+### With spawn options
+
+You can pass any options from `child_process.spawn`, for example piping inputs and outputs:
+
+```js
+import spawnProcess from 'spawn-process';
+
+(async () => {
+    await spawnProcess('echo', ['Hello world'], {
+        stdio: [process.stdin, process.stdout, process.stderr],
+    });
+})();
+```
+
+### With CommonJS / require()
+
+```js
+const spawnProcess = require('spawn-process');
+spawnProcess('echo', ['Hello world']).then((stdout) => {
+    console.log(stdout);
+});
+```
 
 [npm-badge]: https://badge.fury.io/js/spawn-process.svg
 [npm-url]: https://www.npmjs.com/package/spawn-process
