@@ -1,2 +1,5 @@
 import spawnProcess, { dependencies } from './es5/index';
-export = spawnProcess & { dependencies };
+declare const spawnProcessWrapper: typeof spawnProcess & {
+    dependencies: typeof dependencies
+};
+export = spawnProcessWrapper;
