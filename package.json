@@ -1,6 +1,6 @@
 {
   "name": "spawn-process",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Promise wrapper for `child_process.spawn`",
   "main": "./build/wrapper.js",
   "exports": {
