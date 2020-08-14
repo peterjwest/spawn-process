@@ -1,5 +1,2 @@
-const spawnProcess = require('./es5/index.cjs');
-module.exports = Object.assign(
-    spawnProcess.default,
-    { dependencies: spawnProcess.dependencies },
-);
+const moduleImport = require('./es5/index.cjs');
+module.exports = Object.assign(moduleImport.default, moduleImport);
