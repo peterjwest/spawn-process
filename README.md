@@ -57,5 +57,5 @@ spawnProcess('echo', ['Hello world']).then((stdout) => {
 [circle-badge]: https://circleci.com/gh/peterjwest/spawn-process.svg?style=shield
 [circle-url]: https://circleci.com/gh/peterjwest/spawn-process
 
-[coverage-badge]: https://coveralls.io/repos/peterjwest/spawn-process/badge.svg?branch=master&service=github
-[coverage-url]: https://coveralls.io/github/peterjwest/spawn-process?branch=master
+[coverage-badge]: https://coveralls.io/repos/peterjwest/spawn-process/badge.svg?branch=main&service=github
+[coverage-url]: https://coveralls.io/github/peterjwest/spawn-process?branch=main
