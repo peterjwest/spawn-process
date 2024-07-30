@@ -7,10 +7,6 @@ Promise wrapper for `child_process.spawn`.
 ```bash
 npm install spawn-process
 ```
-or
-```bash
-yarn add spawn-process
-```
 
 ## Usage
 
