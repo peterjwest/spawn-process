@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
+import globals from "globals";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -19,6 +20,7 @@ export default [
   {
     languageOptions: {
       sourceType: 'module',
+      globals: { ...globals.node },
     },
 
     rules: {
