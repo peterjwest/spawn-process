@@ -5,6 +5,7 @@ import sinonTest from 'sinon-mocha-test';
 import { describe, it } from 'vitest';
 
 import spawnProcess, { dependencies } from '../src/index';
+import { ChildProcess } from 'child_process';
 
 /** Creates a readable stream with specified data */
 function createReadable(data: string) {
@@ -48,8 +49,7 @@ const config = { useFakeTimers: false };
 describe('spawnProcess', () => {
   it('Resolves with stdout if the command succeeds', sinonTest.create(config, async (sinon) => {
     const childProcess = new MockChildProcess(true, 'stdout message', 'stderr message');
-    // tslint:disable-next-line: no-any
-    const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as any);
+    const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as unknown as ChildProcess);
 
     assert.strictEqual(await spawnProcess('command', ['action'], { shell: true }), 'stdout message');
     assertStub.calledOnceWith(spawn, ['command', ['action'], { shell: true }]);
@@ -57,8 +57,7 @@ describe('spawnProcess', () => {
 
   it('Resolves with stdout if the command succeeds without stdio', sinonTest.create(config, async (sinon) => {
     const childProcess = new MockChildProcess(true);
-    // tslint:disable-next-line: no-any
-    const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as any);
+    const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as unknown as ChildProcess);
 
     assert.strictEqual(await spawnProcess('command', ['action'], { shell: true }), '');
     assertStub.calledOnceWith(spawn, ['command', ['action'], { shell: true }]);
@@ -68,8 +67,8 @@ describe('spawnProcess', () => {
     'Resolves with stdout if the command succeeds with default arguments and options',
     sinonTest.create(config, async (sinon) => {
       const childProcess = new MockChildProcess(true, 'stdout message', 'stderr message');
-      // tslint:disable-next-line: no-any
-      const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as any);
+
+      const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as unknown as ChildProcess);
 
       assert.strictEqual(await spawnProcess('command'), 'stdout message');
       assertStub.calledOnceWith(spawn, ['command', [], {}]);
@@ -78,8 +77,7 @@ describe('spawnProcess', () => {
 
   it('Rejects with stderr if the command fails', sinonTest.create(config, async (sinon) => {
     const childProcess = new MockChildProcess(false, 'stdout message', 'stderr message');
-    // tslint:disable-next-line: no-any
-    const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as any);
+    const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess as unknown as ChildProcess);
 
     await assert.rejects(spawnProcess('command', ['action']), new Error('stderr message'));
     assertStub.calledOnceWith(spawn, ['command', ['action'], {}]);
