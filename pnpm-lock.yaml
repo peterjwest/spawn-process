@@ -14,6 +14,9 @@ importers:
       '@eslint/js':
         specifier: ^9.8.0
         version: 9.8.0
+      '@total-typescript/ts-reset':
+        specifier: ^0.5.1
+        version: 0.5.1
       '@types/node':
         specifier: ^22.0.0
         version: 22.0.0
@@ -555,6 +558,9 @@ packages:
 
   '@sinonjs/text-encoding@0.7.1':
     resolution: {integrity: sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==}
+
+  '@total-typescript/ts-reset@0.5.1':
+    resolution: {integrity: sha512-AqlrT8YA1o7Ff5wPfMOL0pvL+1X+sw60NN6CcOCqs658emD6RfiXhF7Gu9QcfKBH7ELY2nInLhKSCWVoNL70MQ==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -2234,6 +2240,8 @@ snapshots:
       type-detect: 4.0.8
 
   '@sinonjs/text-encoding@0.7.1': {}
+
+  '@total-typescript/ts-reset@0.5.1': {}
 
   '@types/estree@1.0.5': {}
 
