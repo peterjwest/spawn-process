@@ -70,6 +70,9 @@ commands:
           name: Lint Typescript code
           command: pnpm lint:ts
       - run:
+          name: Lint all files
+          command: pnpm lint:unlinted
+      - run:
           name: Check for missing or unusued dependencies
           command: pnpm lint:dependencies
       - run:
