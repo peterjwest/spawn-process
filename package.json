@@ -26,22 +26,17 @@
   "license": "MIT",
   "homepage": "https://github.com/peterjwest/spawn-process#readme",
   "scripts": {
-    "audit-dependencies": "pnpm audit; [[ $? -ge 4 ]] && exit 1 || exit 0",
     "build": "rm -rf build/code && tsup src/index.ts --format cjs,esm --dts --out-dir build/code",
     "lint:ts": "tslint --format verbose --project tsconfig.json",
-    "test:coverage": "rm -rf coverage && NODE_DEBUG=nyc nyc mocha 'tests/**/*.ts'",
-    "test:unit": "mocha --require ts-node/register 'tests/*.ts'",
-    "test:unit:es5": "mocha 'tests/*.cjs'",
-    "test:unit:es6": "mocha 'tests/*.mjs'",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run",
     "test:snippets": "test-snippets"
   },
   "devDependencies": {
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.6.1",
     "@types/sinon": "^10.0.1",
-    "convert-extension": "^0.2.3",
-    "mocha": "^8.4.0",
-    "nyc": "^15.1.0",
+    "@vitest/coverage-v8": "^2.0.4",
     "sinon": "^11.1.1",
     "sinon-assert-stub": "^1.2.0",
     "sinon-mocha-test": "^1.1.0",
@@ -52,6 +47,7 @@
     "tslint-eslint-rules": "^5.4.0",
     "tsup": "^8.2.3",
     "typescript": "^5.5.4",
-    "typescript-tslint-plugin": "^1.0.1"
+    "typescript-tslint-plugin": "^1.0.1",
+    "vitest": "^2.0.4"
   }
 }

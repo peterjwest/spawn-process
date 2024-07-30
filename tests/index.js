@@ -2,8 +2,9 @@ import assert from 'assert';
 import assertStub from 'sinon-assert-stub';
 import { Readable } from 'stream';
 import sinonTest from 'sinon-mocha-test';
+import { describe, it } from 'vitest';
 
-import spawnProcess, { dependencies } from '../build/es6/index.mjs';
+import spawnProcess, { dependencies } from '../build/code/index.js';
 
 /** Creates a readable stream with specified data */
 function createReadable(data) {
@@ -44,7 +45,7 @@ class MockChildProcess {
 
 const config = { useFakeTimers: false };
 
-describe('utils/spawnProcess', () => {
+describe('spawnProcess', () => {
   it('Resolves with stdout if the command succeeds', sinonTest.create(config, async (sinon) => {
     const childProcess = new MockChildProcess(true, 'stdout message', 'stderr message');
     const spawn = sinon.stub(dependencies, 'spawn').returns(childProcess);

@@ -2,6 +2,7 @@ import * as assert from 'assert';
 import assertStub from 'sinon-assert-stub';
 import { Readable } from 'stream';
 import sinonTest from 'sinon-mocha-test';
+import { describe, it } from 'vitest';
 
 import spawnProcess, { dependencies } from '../src/index';
 
@@ -33,7 +34,7 @@ class MockChildProcess {
       this.stderr = createReadable(stderr);
     }
 
-    setTimeout(() => this.events.close(succeeds ? 0 : 1), 10);
+    setTimeout(() => this.events.close && this.events.close(succeeds ? 0 : 1), 10);
   }
 
   /** Mock event handler */
@@ -44,7 +45,7 @@ class MockChildProcess {
 
 const config = { useFakeTimers: false };
 
-describe('utils/spawnProcess', () => {
+describe('spawnProcess', () => {
   it('Resolves with stdout if the command succeeds', sinonTest.create(config, async (sinon) => {
     const childProcess = new MockChildProcess(true, 'stdout message', 'stderr message');
     // tslint:disable-next-line: no-any
