@@ -31,7 +31,9 @@
     "lint:dependencies": "depcheck",
     "test:coverage": "vitest run --coverage",
     "test:unit": "vitest run",
-    "test:snippets": "test-snippets"
+    "test:snippets": "test-snippets",
+    "preinstall": "npx only-allow pnpm",
+    "prepublish": "pnpm install && pnpm build"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
@@ -45,6 +47,7 @@
     "depcheck": "^1.4.7",
     "eslint": "^9.8.0",
     "globals": "^15.8.0",
+    "only-allow": "^1.2.1",
     "sinon-assert-stub": "^2.1.0",
     "sinon-mocha-test": "^2.1.1",
     "test-snippets": "^2.0.0",
