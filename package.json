@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "Promise wrapper for `child_process.spawn`",
   "type": "module",
-  "main": "./build/wrapper.js",
+  "main": "./build/code/index.js",
   "exports": {
     "import": "./build/code/index.js",
     "require": "./build/wrapper.cjs"
@@ -27,9 +27,9 @@
   "homepage": "https://github.com/peterjwest/spawn-process#readme",
   "scripts": {
     "build": "rm -rf build/code && tsup src/index.ts --format cjs,esm --dts --out-dir build/code",
-    "lint:ts": "eslint .",
-    "lint:unlinted": "unlinted",
+    "lint:ts": "eslint",
     "lint:dependencies": "depcheck",
+    "lint:unlinted": "unlinted",
     "test:coverage": "vitest run --coverage",
     "test:unit": "vitest run",
     "test:snippets": "test-snippets",

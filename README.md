@@ -12,7 +12,7 @@ npm install spawn-process
 
 `spawnProcess` will resolve with the stdout output or reject with the stderr.
 
-<!-- snippet: ts,es6 -->
+<!-- snippet: ts,js -->
 ```js
 import spawnProcess from 'spawn-process';
 
@@ -26,7 +26,7 @@ import spawnProcess from 'spawn-process';
 
 You can pass any options from `child_process.spawn`, for example piping inputs and outputs:
 
-<!-- snippet: ts,es6 -->
+<!-- snippet: ts,js -->
 ```js
 import spawnProcess from 'spawn-process';
 
@@ -39,7 +39,7 @@ import spawnProcess from 'spawn-process';
 
 ### With CommonJS / require()
 
-<!-- snippet: js -->
+<!-- snippet: cjs -->
 ```js
 const spawnProcess = require('spawn-process');
 spawnProcess('echo', ['Hello world']).then((stdout) => {
